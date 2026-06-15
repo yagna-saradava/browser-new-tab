@@ -66,7 +66,7 @@ brew install node
 git clone git@github.com:yagna-saradava/browser-new-tab.git
 cd browser-new-tab/
 ```
-2. **Install abckend dependencies:**
+2. **Install backend dependencies:**
 ```bash
 cd backend
 npm install
