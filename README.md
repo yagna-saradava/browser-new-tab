@@ -2,6 +2,8 @@
 
 An AI powered New Tab homepage, built with vanilla HTML, CSS and JavaScript frontend and Node.JS backend.
 
+---
+
 ## Project Structure
 
 ```
@@ -19,6 +21,8 @@ browser/
 └── wallpaper.js    # Manages background slideshow and manual prev/next background
 ```
 
+---
+
 ## Features
 
 The project has the following major features:
@@ -32,6 +36,8 @@ The project has the following major features:
 - Gmail, Images and Apps buttons on top right corner just like Google Chrome New Tab Page
 - Live clock and greeting (Morning/Afternoon/Evening based on time) and date
 
+---
+
 ## Getting Started
 
 Following are the steps to setup and run the application locally.
@@ -41,24 +47,50 @@ Following are the steps to setup and run the application locally.
 You will need **Node.js** which includes `npm` and `npx` installed on your system. Below are the steps to install:
 
 * **Linux (Debian/Ubuntu):**
-  ```bash
-  sudo apt update
-  sudo apt install nodejs npm
-  ```
+```bash
+sudo apt update
+sudo apt install nodejs npm
+```
 * **MacOS:**
   Using HomeBrew:
-  ```bash
-  brew install node
-  ```
+```bash
+brew install node
+```
 * **Windows:**
   Download and run the official installer from [nodejs.org](https://nodejs.org).
 
----
-
 ### Installation and Setup
 
-1. **Clone or navigate** to the project root.
-2. Open `index.html` in any modern web browser.
+1. **Clone or navigate** to the project root:
+```bash
+git clone git@github.com:yagna-saradava/browser-new-tab.git
+cd browser-new-tab/
+```
+2. **Install abckend dependencies:**
+```bash
+cd backend
+npm install
+cd ..
+```
+
+### How to Run the Application
+
+You need to run frontend and backend servers simultaneously, Open **2 separate terminals in project root**:
+
+#### Terminal 1:
+Serve a local server using npx:
+```bash
+npx serve .
+```
+* **Access the app:** Open `http://localhost:3000` in your browser (or the port specified in your terminal).
+
+#### Terminal 2:
+Run Node.js backend app:
+```bash
+cd backend/
+node index.js
+```
+* The backend api server will open on `http://localhost:5000`
 
 > **Note:** An internet connection is needed to load the Poppins font from Google Fonts and for the header/footer links to work.
 
