@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="bg-base"></div>
+    <div id="bg-overlay"></div>
+    <div class="vignette-overlay"></div>
+
+    <button id="prev-bg-btn" title="Previous Background">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button id="next-bg-btn" title="Next Background">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <header>
+        <div class="header-left">
+            <span id="digital-clock">00:00</span>
+            <span id="date-string">Loading...</span>
+        </div>
+        <div class="header-right">
+            <a href="https://mail.google.com/mail/u/0/" class="nav-link">Gmail</a>
+            <a href="https://www.google.com/imghp" class="nav-link">Images</a>
+            <button id="apps-menu-btn" title="Google Workspace">Apps</button>
+        </div>
+    </header>
+
+    <div id="apps-dropdown" class="hidden">
+        <div class="apps-grid">
+            <a href="https://myaccount.google.com/" target="_blank" class="app-item"><i class="fas fa-user-circle"></i><span>Account</span></a>
+            <a href="https://drive.google.com/drive/u/0/" target="_blank" class="app-item"><i class="fab fa-google-drive"></i><span>Drive</span></a>
+            <a href="https://mail.google.com/mail/u/0/" target="_blank" class="app-item"><i class="fas fa-envelope"></i><span>Gmail</span></a>
+            <a href="https://www.youtube.com/" target="_blank" class="app-item"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+            <a href="https://maps.google.com/" target="_blank" class="app-item"><i class="fas fa-map-marked-alt"></i><span>Maps</span></a>
+            <a href="https://www.google.com/" target="_blank" class="app-item"><i class="fab fa-google"></i><span>Search</span></a>
+            <a href="https://calendar.google.com/calendar/u/0/" target="_blank" class="app-item"><i class="fas fa-calendar-alt"></i><span>Calendar</span></a>
+            <a href="https://news.google.com/" target="_blank" class="app-item"><i class="fas fa-newspaper"></i><span>News</span></a>
+            <a href="https://photos.google.com/" target="_blank" class="app-item"><i class="fas fa-images"></i><span>Photos</span></a>
+            <a href="https://meet.google.com/" target="_blank" class="app-item"><i class="fas fa-video"></i><span>Meet</span></a>
+            <a href="https://translate.google.com/" target="_blank" class="app-item"><i class="fas fa-language"></i><span>Translate</span></a>
+            <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank" class="app-item"><i class="fas fa-file-excel"></i><span>Sheets</span></a>
+            <a href="https://docs.google.com/document/u/0/" target="_blank" class="app-item"><i class="fas fa-file-alt"></i><span>Docs</span></a>
+            <a href="https://docs.google.com/presentation/u/0/" target="_blank" class="app-item"><i class="fas fa-file-powerpoint"></i><span>Slides</span></a>
+            <a href="https://keep.google.com/" target="_blank" class="app-item"><i class="fas fa-lightbulb"></i><span>Keep</span></a>
+            <a href="https://chat.google.com/" target="_blank" class="app-item"><i class="fas fa-comments"></i><span>Chat</span></a>
+            <a href="https://contacts.google.com/" target="_blank" class="app-item"><i class="fas fa-address-book"></i><span>Contacts</span></a>
+        </div>
+    </div>
+
+    <main>
+        <div class="brand-logo">
+            <h1 id="text"></h1>
+        </div>
+
+        <div class="workspace-container">
+            <div class="search-wrapper">
+                <div class="custom-dropdown" id="custom-engine-dropdown">
+                    <div id="selected-engine">Google</div>
+                    <ul id="menu" class="dropdown-options hidden">
+                        <li data-value="google">Google</li>
+                        <li data-value="duckduckgo">DuckDuckGo</li>
+                        <li data-value="bing">Bing</li>
+                        <li data-value="wikipedia">WikiPedia(EN)</li>
+                    </ul>
+                </div>
+            
+                <input type="text" placeholder="Search the web or paste link..." id="search-input" autofocus autocomplete="off">
+                <button id="search-submit-btn" title="Execute"><i class="fas fa-arrow-right" id="action-icon"></i></button>
+            </div>
+
+            <div id="ai-chat-results" class="hidden"></div>
+            <div id="suggestions-box" class="hidden"></div>
+        </div>
+
+        <div class="mode-controller">
+            <button id="mode-search-btn" class="active-mode"><i class="fas fa-search"></i> Web</button>
+            <button id="mode-ai-btn"><i class="fas fa-robot"></i> AI Mode</button>
+        </div>
+        <h5 id="power">Powered by Nvidia AI</h5>
+    </main>
+
+    <!-- <footer>
+        <div class="footer-left">
+            <span class="inspired-text">Designed for Focus</span>
+        </div>
+    </footer> -->
+
+    <script type="module" src="/script.js"></script>
+    <script src="/wallpaper.js"></script>
+    <script src="/general.js"></script>
+</body>
+</html>

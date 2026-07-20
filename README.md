@@ -43,7 +43,6 @@ The project has the following major features:
 Following are the steps to setup and run the application locally.
 
 ### Prerequisites
-
 You will need **Node.js** which includes `npm` and `npx` installed on your system. Below are the steps to install:
 
 * **Linux (Debian/Ubuntu):**
@@ -60,7 +59,6 @@ brew install node
   Download and run the official installer from [nodejs.org](https://nodejs.org).
 
 ### Installation and Setup
-
 1. **Clone or navigate** to the project root:
 ```bash
 git clone git@github.com:yagna-saradava/browser-new-tab.git
@@ -68,13 +66,12 @@ cd browser-new-tab/
 ```
 2. **Install backend dependencies:**
 ```bash
-cd backend
+cd backend/
 npm install
 cd ..
 ```
 
 ### How to Run the Application
-
 You need to run frontend and backend servers simultaneously, Open **2 separate terminals in project root**:
 
 #### Terminal 1:
@@ -92,21 +89,31 @@ node index.js
 ```
 * The backend api server will open on `http://localhost:5000`
 
-> **Note:** An internet connection is needed to load the Poppins font from Google Fonts and for the header/footer links to work.
+---
+
+## Project Details
+
+
+---
 
 ## Technologies Used
 
 | Technology | Purpose |
 |---|---|
 | HTML5 | Page structure and layout |
-| CSS3 | Styling, flexbox layout, hover transitions |
-| JavaScript (ES6) | Live character counting, button state management |
-| Google Fonts (Poppins) | Logo and button typography |
+| CSS3 | Stylings |
+| Frontend JavaScript (ES6) | Background Slideshow and other UI Elements, Handle API requests and print messages in formatted manner |
+| Node.js backend | Backend app to talk to API endpoint of AI Model |
+
+---
 
 ## Known Limitations
 
-- The 50-character limit on the search bar is a soft limit — it highlights in red but does **not** block submission.
-- The "Settings" link in the footer is not yet wired up.
+- Search suggestions are not AI Powered they are simply searches that include or starts with typed text.
+- AI Mode may take longer to respond as chat grows because API Rate Limit is fixed to maximum of 40rpm.
+- Sometimes one may need to enter the last prompt again in AI Mode due to Error response of Too many requests to API endpoint.
+
+---
 
 ## References
 
