@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import OpenAI from "openai";
 import morgan from "morgan";
+import 'dotenv/config';
 
 const app = express();
 app.use(morgan('dev'));
@@ -9,8 +10,8 @@ app.use(cors({origin: "http://localhost:3000"}));
 app.use(express.json());
 
 const nvidia = new OpenAI({
-    apiKey: "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",
-    baseURL: "https://integrate.api.nvidia.com/v1",
+	apiKey: process.env.API,
+    baseURL: process.env.URL,
 });
 
 app.post("/api/chat", async (req, res) => {

@@ -1,130 +1,86 @@
 # Personalised AI Powered New Tab Page
 
-An AI powered New Tab homepage, built with vanilla HTML, CSS and JavaScript frontend and Node.JS backend.
-
----
-
-## Project Structure
-
-```
-browser/
-├── backend/
-│   ├── index.js    # backend app for handling API requests to AI
-│   ├── package.json
-│   └── package-lock.json
-├── general.js      # Dropdown Apps menu, Live Clock and Date, and Greeting
-├── index.html      # Main HTML structure
-├── parser.js       # Parses and Converts markdown(Md) code to html code
-├── README.md
-├── script.js       # Handles search suggestions, search redirect and AI prompt/replies API requests
-├── style.css       # Styling and layout
-└── wallpaper.js    # Manages background slideshow and manual prev/next background
-```
-
----
+A personalized browser new tab page built with vanilla HTML, CSS, and JavaScript. It combines a multi-engine web search experience with a locally hosted AI chat endpoint.
 
 ## Features
 
-The project has the following major features:
+- Live clock, date, and time-based greeting
+- Rotating wallpaper slideshow with previous/next controls
+- Web search and direct URL navigation
+- Google, DuckDuckGo, Bing, and Wikipedia search engine options
+- Search suggestions while typing using Google's public JSONP suggestion endpoint
+- AI chat mode with Markdown-formatted replies and copyable code blocks
+- Google Workspace quick-links menu
+- In-memory AI conversation history for the current page session
 
-- Background Slideshow (Including Manual image change prev/next options)
-- Different Web Mode and AI Mode
-- Different Search Engine Options in Web Mode
-- Web Mode with live suggestions of searched text
-- AI Mode powered by Nvidia AI
-- Session Persistant AI Chat history (History remains intact until page refresh/hard refresh)
-- Gmail, Images and Apps buttons on top right corner just like Google Chrome New Tab Page
-- Live clock and greeting (Morning/Afternoon/Evening based on time) and date
+## Project structure
 
----
-
-## Getting Started
-
-Following are the steps to setup and run the application locally.
-
-### Prerequisites
-You will need **Node.js** which includes `npm` and `npx` installed on your system. Below are the steps to install:
-
-* **Linux (Debian/Ubuntu):**
-```bash
-sudo apt update
-sudo apt install nodejs npm
+```text
+browser-new-tab/
+├─── backend/
+│    ├─── index.js            -- Express API proxy for AI chat requests
+│    ├─── package.json        -- Backend dependencies and metadata
+│    └─── package-lock.json
+│
+├─── general.js               -- Greeting, live clock, date, and Apps menu
+├─── index.html               -- Page markup
+├─── parser.js                -- Lightweight Markdown-to-HTML renderer
+├─── script.js                -- Search, suggestions, modes, and AI chat UI
+├─── style.css                -- Page styling
+└─── wallpaper.js             -- Wallpaper slideshow controls
 ```
-* **MacOS:**
-  Using HomeBrew:
-```bash
-brew install node
-```
-* **Windows:**
-  Download and run the official installer from [nodejs.org](https://nodejs.org).
 
-### Installation and Setup
-1. **Clone or navigate** to the project root:
-```bash
-git clone git@github.com:yagna-saradava/browser-new-tab.git
-cd browser-new-tab/
-```
-2. **Install backend dependencies:**
-```bash
-cd backend/
-npm install
-cd ..
-```
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) 18 or later
+- An NVIDIA API key with access to the configured chat model
+
+## Run locally
+
+1. Clone the repository and install the backend dependencies:
+
+   ```bash
+   git clone git@github.com:yagna-saradava/browser-new-tab.git
+   cd browser-new-tab/backend
+   npm install
+   ```
+
+2. Start the backend API in one terminal:
+
+   ```bash
+   cd backend
+   npm test
+   ```
 
 ### How to Run the Application
 You need to run frontend and backend servers simultaneously, Open **2 separate terminals in project root**:
 
-#### Terminal 1:
-Serve a local server using npx:
-```bash
-npx serve .
-```
-* **Access the app:** Open `http://localhost:3000` in your browser (or the port specified in your terminal).
+3. Serve the frontend from the project root in another terminal:
 
-#### Terminal 2:
-Run Node.js backend app:
-```bash
-cd backend/
-node index.js
-```
-* The backend api server will open on `http://localhost:5000`
+   ```bash
+   npx serve .
+   ```
 
----
+4. Open the URL shown by `serve` - normally [`http://localhost:3000`](http://localhost:3000) in your browser.
 
-## Project Details
+The frontend is configured to call `http://localhost:5000/api/chat`, and the backend permits requests from `http://localhost:3000`.
 
+## Using the page
 
----
+- **Web mode:** Choose a search engine, enter a query or URL, then press Enter or the arrow button.
+- **AI mode:** Select **AI Mode**, enter a prompt, and press Enter. The current conversation remains available until the page is refreshed.
+- **Wallpapers:** Use the chevrons at either side of the page to change images manually; the slideshow advances automatically every 10 seconds.
 
-## Technologies Used
+## Technology
 
-| Technology | Purpose |
-|---|---|
-| HTML5 | Page structure and layout |
-| CSS3 | Stylings |
-| Frontend JavaScript (ES6) | Background Slideshow and other UI Elements, Handle API requests and print messages in formatted manner |
-| Node.js backend | Backend app to talk to API endpoint of AI Model |
+| Area | Tools |
+| --- | --- |
+| Frontend | HTML5, Vanilla CSS, JavaScript modules |
+| Backend | Node.js, Express, Morgan, CORS |
+| AI integration | OpenAI JavaScript SDK configured for the NVIDIA API |
 
----
+## Limitations
 
-## Known Limitations
-
-- Search suggestions are not AI Powered they are simply searches that include or starts with typed text.
-- AI Mode may take longer to respond as chat grows because API Rate Limit is fixed to maximum of 40rpm.
-- Sometimes one may need to enter the last prompt again in AI Mode due to Error response of Too many requests to API endpoint.
-
----
-
-## References
-
-- [Google Homepage](https://www.google.co.in/) — Original design reference
-- [Google Fonts — Poppins](https://fonts.google.com/specimen/Poppins) — Font used for the logo and buttons
-- [Google Doodles](https://doodles.google/) — Target of the "I'm Feeling Lucky" button
-- [Google Search Documentation](https://developers.google.com/custom-search/docs/element) — How the `action="https://www.google.com/search"` form submission works
-- [MDN — HTML Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms) — Reference for form, input, and button elements
-- [MDN — Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) — Layout technique used throughout the page
-- [MDN — addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) — Used for the live character counter in `script.js`
-- [MDN — HTMLButtonElement.disabled](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/disabled) — Used to toggle the submit button state
-- [Google Brand Colors](https://brandpalettes.com/google-color-codes/) — Hex codes `#4285F4`, `#EA4335`, `#FBBC05` used in the logo
-- [Google Policies — Privacy](https://policies.google.com/privacy) — Linked in the footer
-- [Google Policies — Terms](https://policies.google.com/terms) — Linked in the footer# browser-new-tab
+- The backend is designed for local development: it allows only the `http://localhost:3000` origin.
+- Conversation history is stored only in browser memory and is cleared on refresh.
+- There are no automated tests or production deployment configuration in this repository.
